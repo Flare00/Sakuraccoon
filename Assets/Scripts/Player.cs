@@ -4,15 +4,13 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    public void MoveLeftRight(float value)
     {
-        
+
     }
 
-    // Update is called once per frame
-    void Update()
+    public void CardPlayerAnim(Card.CardType type)
     {
-        
+
     }
 }

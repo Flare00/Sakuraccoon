@@ -10,4 +10,6 @@ public interface Card
     }
 
     public void DoAction(bool destroy = true);
+
+    public CardType GetCardType();
 }

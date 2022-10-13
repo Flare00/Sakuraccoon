@@ -7,4 +7,9 @@ public class CardDash : Card
     public void DoAction(bool destroy = true){
 
     }
+
+    public Card.CardType GetCardType()
+    {
+        return Card.CardType.Dash;
+    }
 }
