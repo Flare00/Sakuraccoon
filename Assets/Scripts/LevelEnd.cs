@@ -9,4 +9,10 @@ public class LevelEnd : MonoBehaviour
     public void PlayerCollision(){
 
     }
+
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        Debug.Log("Level Ended");
+        nextLevel.StartLevel();
+    }
 }

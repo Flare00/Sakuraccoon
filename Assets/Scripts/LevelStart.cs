@@ -10,7 +10,7 @@ public class LevelStart : MonoBehaviour
     void Start()
     {
         //transform = gameObject.GetComponent<Transform>();
-        Debug.Log(transform.position);
+        //Debug.Log(transform.position);
     }
 
     // Update is called once per frame

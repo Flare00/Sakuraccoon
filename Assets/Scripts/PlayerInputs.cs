@@ -6,6 +6,10 @@ using UnityEngine.InputSystem;
 public class PlayerInputs : MonoBehaviour, ControlsGame.IPlayerActions
 {
     public ActionSystem action = null;
+
+    private Vector2 moveValue;
+    private bool isMoving = false;
+
     void ControlsGame.IPlayerActions.OnCard1(InputAction.CallbackContext context)
     {
         if(action != null)
@@ -38,8 +42,15 @@ public class PlayerInputs : MonoBehaviour, ControlsGame.IPlayerActions
 
     void ControlsGame.IPlayerActions.OnMove(InputAction.CallbackContext context)
     {
-        if (action != null)
-            action.Move(context.ReadValue<Vector2>());
+        if (context.performed)
+        {
+            moveValue = context.ReadValue<Vector2>();
+            isMoving = true;
+        }
+        else if (context.canceled)
+        {
+            isMoving = false;
+        }
     }
 
     void ControlsGame.IPlayerActions.OnSubmit(InputAction.CallbackContext context)
@@ -57,6 +68,9 @@ public class PlayerInputs : MonoBehaviour, ControlsGame.IPlayerActions
     // Update is called once per frame
     void Update()
     {
-        
+        if (isMoving && action != null)
+        {
+            action.Move(moveValue);
+        }
     }
 }

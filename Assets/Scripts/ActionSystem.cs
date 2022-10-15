@@ -9,17 +9,23 @@ public class ActionSystem : MonoBehaviour
 
     public Player player;
 
+    public Level tmpLevel; //for test, to remove and implement LevelSystem
+
+
     public void PlayCard(int pos)
     {
-        if (pos >= 0 && pos < NB_MAX_CARDS)
+        player.CardPlayerAnim(Card.CardType.Jump);
+        /*if (pos >= 0 && pos < NB_MAX_CARDS)
         {
             if (cards[pos] != null)
-                if(player != null)
+            {
+                if (player != null)
                 {
                     player.CardPlayerAnim(cards[pos].GetCardType());
                 }
                 cards[pos].DoAction();
-        }
+            }
+        }*/
     }
 
     public void Move(Vector2 axis)
@@ -28,5 +34,15 @@ public class ActionSystem : MonoBehaviour
         {
             player.MoveLeftRight(axis.x);
         }
+    }
+
+    public void Death()
+    {
+        tmpLevel.StartLevel();
+    }
+
+    private void Update()
+    {
+        
     }
 }
