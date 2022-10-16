@@ -5,9 +5,11 @@ using UnityEngine;
 public class Player : MonoBehaviour
 {
     Rigidbody2D rigid;
+    AudioSource aud;
     private void Start()
     {
         rigid = GetComponent<Rigidbody2D>();
+        aud = GetComponent<AudioSource>();
     }
     public void MoveLeftRight(float value)
     {
@@ -18,6 +20,8 @@ public class Player : MonoBehaviour
     {
         if(type == Card.CardType.Jump)
         {
+            if(aud)
+                aud.Play();
             Debug.Log("Jump");
             rigid.velocity = new Vector2(rigid.velocity.x, 10.0f);
         }
