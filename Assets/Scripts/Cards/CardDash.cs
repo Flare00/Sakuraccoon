@@ -4,11 +4,13 @@ using UnityEngine;
 
 public class CardDash : Card
 {
-    public void DoAction(bool destroy = true){
+    public override void DoAction(Player p, bool destroy = true){
 
+        if (destroy)
+            Destroy();
     }
 
-    public Card.CardType GetCardType()
+    public override Card.CardType GetCardType()
     {
         return Card.CardType.Dash;
     }

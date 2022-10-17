@@ -25,6 +25,7 @@ public class Level : MonoBehaviour
         if (start != null)
         {
             actionSystem.player.transform.position = start.transform.position + new Vector3(0, 0.01f, 0);
+            actionSystem.FillCards(cards, unlimitedCard);
         }
     }
 

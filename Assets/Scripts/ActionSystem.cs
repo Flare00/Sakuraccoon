@@ -6,16 +6,30 @@ public class ActionSystem : MonoBehaviour
 {
     public static int NB_MAX_CARDS = 5;
     private Card[] cards = new Card[NB_MAX_CARDS];
-
+    private bool unlimited = false;
     public Player player;
 
     public Level tmpLevel; //for test, to remove and implement LevelSystem
 
+    public GameObject cardsAnchorParent;
+
+    private GameObject[] cardsAnchor;
+
+    private void Start()
+    {
+        if(cardsAnchorParent != null)
+        {
+            cardsAnchor = new GameObject[NB_MAX_CARDS];
+            for(int i = 0; i < NB_MAX_CARDS; i++)
+            {
+                cardsAnchor[i] = cardsAnchorParent.transform.GetChild(i).gameObject;
+            }
+        }   
+    }
 
     public void PlayCard(int pos)
     {
-        player.CardPlayerAnim(Card.CardType.Jump);
-        /*if (pos >= 0 && pos < NB_MAX_CARDS)
+        if (pos >= 0 && pos < NB_MAX_CARDS)
         {
             if (cards[pos] != null)
             {
@@ -23,9 +37,13 @@ public class ActionSystem : MonoBehaviour
                 {
                     player.CardPlayerAnim(cards[pos].GetCardType());
                 }
-                cards[pos].DoAction();
+                cards[pos].DoAction(player, !unlimited);
+                if (!unlimited)
+                {
+                    cards[pos] = null;
+                }
             }
-        }*/
+        }
     }
 
     public void Move(Vector2 axis)
@@ -41,8 +59,18 @@ public class ActionSystem : MonoBehaviour
         tmpLevel.StartLevel();
     }
 
+    public void FillCards(List<Card.CardType> list, bool unlimited)
+    {
+        for (int i = 0, max = list.Count; i < max && i < NB_MAX_CARDS; i++)
+        {
+            this.cards[i] = Card.GenerateCardByType(list[i]);
+            this.cards[i].cardGameObject.transform.SetParent(cardsAnchor[i].transform, false);
+            //this.cards[i].cardGameObject.transform.position = new Vector3(0, 0, 0);
+        }
+    }
+
     private void Update()
     {
-        
+
     }
 }

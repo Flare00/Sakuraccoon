@@ -12,31 +12,31 @@ public class PlayerInputs : MonoBehaviour, ControlsGame.IPlayerActions
 
     void ControlsGame.IPlayerActions.OnCard1(InputAction.CallbackContext context)
     {
-        if(action != null)
+        if(action != null && context.performed)
             action.PlayCard(0);
     }
 
     void ControlsGame.IPlayerActions.OnCard2(InputAction.CallbackContext context)
     {
-        if (action != null)
+        if (action != null && context.performed)
             action.PlayCard(1);
     }
 
     void ControlsGame.IPlayerActions.OnCard3(InputAction.CallbackContext context)
     {
-        if (action != null)
+        if (action != null && context.performed)
             action.PlayCard(2);
     }
 
     void ControlsGame.IPlayerActions.OnCard4(InputAction.CallbackContext context)
     {
-        if (action != null)
+        if (action != null && context.performed)
             action.PlayCard(3);
     }
 
     void ControlsGame.IPlayerActions.OnCard5(InputAction.CallbackContext context)
     {
-        if (action != null)
+        if (action != null && context.performed)
             action.PlayCard(4);
     }
 

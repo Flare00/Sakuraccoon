@@ -22,8 +22,6 @@ public class Player : MonoBehaviour
         {
             if(aud)
                 aud.Play();
-            Debug.Log("Jump");
-            rigid.velocity = new Vector2(rigid.velocity.x, 10.0f);
         }
     }
 }
