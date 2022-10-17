@@ -8,7 +8,7 @@ public class ActionSystem : MonoBehaviour
     private Card[] cards = new Card[NB_MAX_CARDS];
     private bool unlimited = false;
     public Player player;
-
+    public GameState gameState;
     public Level tmpLevel; //for test, to remove and implement LevelSystem
 
     public GameObject cardsAnchorParent;
@@ -56,7 +56,16 @@ public class ActionSystem : MonoBehaviour
 
     public void Death()
     {
+        for(int i = 0; i < NB_MAX_CARDS; i++)
+        {
+            if (cards[i] != null)
+            {
+                cards[i].Destroy();
+            }
+        }
+        gameState.IncrementDeath();
         tmpLevel.StartLevel();
+        
     }
 
     public void FillCards(List<Card.CardType> list, bool unlimited)
