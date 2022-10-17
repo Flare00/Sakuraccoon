@@ -10,6 +10,8 @@ public class ActionSystem : MonoBehaviour
     public Player player;
     public GameState gameState;
     public Level tmpLevel; //for test, to remove and implement LevelSystem
+    private AudioSource audioSource;
+    public List<AudioClip> clips;
 
     public GameObject cardsAnchorParent;
 
@@ -24,7 +26,9 @@ public class ActionSystem : MonoBehaviour
             {
                 cardsAnchor[i] = cardsAnchorParent.transform.GetChild(i).gameObject;
             }
-        }   
+        }
+
+        audioSource = GetComponent<AudioSource>();
     }
 
     public void PlayCard(int pos)
@@ -60,6 +64,10 @@ public class ActionSystem : MonoBehaviour
         {
             if (cards[i] != null)
             {
+                if(audioSource){
+                    audioSource.clip = clips[0];
+                    audioSource.Play();
+                }
                 cards[i].Destroy();
             }
         }

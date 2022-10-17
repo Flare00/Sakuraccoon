@@ -6,10 +6,12 @@ public class Player : MonoBehaviour
 {
     Rigidbody2D rigid;
     AudioSource aud;
+    public List<AudioClip> clips;
     private void Start()
     {
         rigid = GetComponent<Rigidbody2D>();
         aud = GetComponent<AudioSource>();
+        // clips.Add(new AudioClip);
     }
     public void MoveLeftRight(float value)
     {
@@ -20,8 +22,10 @@ public class Player : MonoBehaviour
     {
         if(type == Card.CardType.Jump)
         {
-            if(aud)
+            if(aud){
+                aud.clip = clips[0];
                 aud.Play();
+            }
         }
     }
 }
