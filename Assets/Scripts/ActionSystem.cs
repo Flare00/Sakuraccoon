@@ -77,6 +77,7 @@ public class ActionSystem : MonoBehaviour
         CardDash.DASH_IN_EXECUTION = 0;
         player.GetComponent<Rigidbody2D>().gravityScale = GRAVITY_SCALE;
         player.GetComponent<Rigidbody2D>().velocity = new Vector2(0, 0);
+        player.direction = 1.0f;
         gameState.IncrementDeath();
         tmpLevel.StartLevel();
 
