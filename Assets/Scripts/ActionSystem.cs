@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class ActionSystem : MonoBehaviour
 {
+    public static float GRAVITY_SCALE = 3.0f;
     public static int NB_MAX_CARDS = 5;
     private Card[] cards = new Card[NB_MAX_CARDS];
     private bool unlimited = false;
@@ -19,15 +20,15 @@ public class ActionSystem : MonoBehaviour
 
     private void Start()
     {
-        if(cardsAnchorParent != null)
+        if (cardsAnchorParent != null)
         {
             cardsAnchor = new GameObject[NB_MAX_CARDS];
-            for(int i = 0; i < NB_MAX_CARDS; i++)
+            for (int i = 0; i < NB_MAX_CARDS; i++)
             {
                 cardsAnchor[i] = cardsAnchorParent.transform.GetChild(i).gameObject;
             }
         }
-
+        GRAVITY_SCALE = player.GetComponent<Rigidbody2D>().gravityScale;
         audioSource = GetComponent<AudioSource>();
     }
 
@@ -60,20 +61,25 @@ public class ActionSystem : MonoBehaviour
 
     public void Death()
     {
-        for(int i = 0; i < NB_MAX_CARDS; i++)
+        for (int i = 0; i < NB_MAX_CARDS; i++)
         {
             if (cards[i] != null)
             {
-                if(audioSource){
+                if (audioSource && clips.Count > 0)
+                {
                     audioSource.clip = clips[0];
                     audioSource.Play();
                 }
                 cards[i].Destroy();
             }
         }
+        player.StopAllCoroutines();
+        CardDash.DASH_IN_EXECUTION = 0;
+        player.GetComponent<Rigidbody2D>().gravityScale = GRAVITY_SCALE;
+        player.GetComponent<Rigidbody2D>().velocity = new Vector2(0, 0);
         gameState.IncrementDeath();
         tmpLevel.StartLevel();
-        
+
     }
 
     public void FillCards(List<Card.CardType> list, bool unlimited)

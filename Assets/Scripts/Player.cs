@@ -7,6 +7,7 @@ public class Player : MonoBehaviour
     Rigidbody2D rigid;
     AudioSource aud;
     public List<AudioClip> clips;
+    public float direction = 1.0f;
     private void Start()
     {
         rigid = GetComponent<Rigidbody2D>();
@@ -15,14 +16,19 @@ public class Player : MonoBehaviour
     }
     public void MoveLeftRight(float value)
     {
-        GetComponent<Rigidbody2D>().velocity = new Vector2(value * 7.0f, rigid.velocity.y);
+        if (CardDash.DASH_IN_EXECUTION <= 0)
+        {
+            direction = value > 0 ? 1.0f : (value < 0 ? -1.0f : direction);
+            rigid.velocity = new Vector2(value * 7.0f, rigid.velocity.y);
+        }
     }
 
     public void CardPlayerAnim(Card.CardType type)
     {
-        if(type == Card.CardType.Jump)
+        if (type == Card.CardType.Jump)
         {
-            if(aud){
+            if (aud)
+            {
                 aud.clip = clips[0];
                 aud.Play();
             }
