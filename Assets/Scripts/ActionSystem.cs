@@ -12,7 +12,7 @@ public class ActionSystem : MonoBehaviour
     public GameState gameState;
     public Level tmpLevel; //for test, to remove and implement LevelSystem
     private AudioSource audioSource;
-    public List<AudioClip> clips;
+    public AudioClip deathSound;
 
     public GameObject cardsAnchorParent;
 
@@ -65,9 +65,9 @@ public class ActionSystem : MonoBehaviour
         {
             if (cards[i] != null)
             {
-                if (audioSource && clips.Count > 0)
+                if (audioSource )
                 {
-                    audioSource.clip = clips[0];
+                    audioSource.clip = deathSound;
                     audioSource.Play();
                 }
                 cards[i].Destroy();

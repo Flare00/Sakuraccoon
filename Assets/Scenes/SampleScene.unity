@@ -1058,8 +1058,7 @@ MonoBehaviour:
   player: {fileID: 727368290}
   gameState: {fileID: 837186184}
   tmpLevel: {fileID: 1353997399}
-  clips:
-  - {fileID: 8300000, guid: 9d1ed98c67b50d50b88750076565817a, type: 3}
+  deathSound: {fileID: 8300000, guid: 9d1ed98c67b50d50b88750076565817a, type: 3}
   cardsAnchorParent: {fileID: 1432526440}
 --- !u!4 &837186183
 Transform:
@@ -1890,13 +1889,21 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8510201184172590988, guid: b3893e0c2d701c046970edae4e4c0dd8, type: 3}
+      propertyPath: dashSound
+      value: 
+      objectReference: {fileID: 8300000, guid: 8b1a31a72a0b6f2eea0dd8c9f5ca5f3c, type: 3}
+    - target: {fileID: 8510201184172590988, guid: b3893e0c2d701c046970edae4e4c0dd8, type: 3}
+      propertyPath: jumpSound
+      value: 
+      objectReference: {fileID: 8300000, guid: 9af0ff54ea3af9ba1af49427926fb496, type: 3}
+    - target: {fileID: 8510201184172590988, guid: b3893e0c2d701c046970edae4e4c0dd8, type: 3}
       propertyPath: clips.Array.size
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 8510201184172590988, guid: b3893e0c2d701c046970edae4e4c0dd8, type: 3}
       propertyPath: clips.Array.data[0]
       value: 
-      objectReference: {fileID: 8300000, guid: a3658fa585ad3bcc6a0b1505519ba29e, type: 3}
+      objectReference: {fileID: 8300000, guid: 9af0ff54ea3af9ba1af49427926fb496, type: 3}
     - target: {fileID: 8510201184172590988, guid: b3893e0c2d701c046970edae4e4c0dd8, type: 3}
       propertyPath: clips.Array.data[1]
       value: 
