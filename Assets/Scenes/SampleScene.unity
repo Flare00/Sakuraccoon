@@ -1739,8 +1739,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 727368290}
   gameState: {fileID: 837186184}
-  clips:
-  - {fileID: 8300000, guid: 9d1ed98c67b50d50b88750076565817a, type: 3}
+  deathSound: {fileID: 8300000, guid: 9d1ed98c67b50d50b88750076565817a, type: 3}
   cardsAnchorParent: {fileID: 1432526440}
 --- !u!4 &837186183
 Transform:
@@ -1878,9 +1877,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 811e2e7b4f9b3d3469d0261354056634, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  levelStartId: 0
+  levelStartId: 1
   levelsContainer: {fileID: 143105731}
   mainCamera: {fileID: 774906374}
+  actions: {fileID: 837186182}
 --- !u!114 &959270522 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 959270522, guid: 43fdec7e0c5e76546885accf8fbcc24b, type: 3}
@@ -2274,7 +2274,7 @@ PrefabInstance:
     - target: {fileID: 8218470770026766509, guid: 6411c50d206b569438effce78080c3e8, type: 3}
       propertyPath: nextLevel
       value: 
-      objectReference: {fileID: 2137426466}
+      objectReference: {fileID: 1353997399}
     m_RemovedComponents: []
     m_AddedGameObjects: []
   m_SourcePrefab: {fileID: 100100000, guid: 6411c50d206b569438effce78080c3e8, type: 3}
@@ -2525,6 +2525,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8510201184172590988, guid: b3893e0c2d701c046970edae4e4c0dd8, type: 3}
+      propertyPath: dashSound
+      value: 
+      objectReference: {fileID: 8300000, guid: 8b1a31a72a0b6f2eea0dd8c9f5ca5f3c, type: 3}
+    - target: {fileID: 8510201184172590988, guid: b3893e0c2d701c046970edae4e4c0dd8, type: 3}
+      propertyPath: jumpSound
+      value: 
+      objectReference: {fileID: 8300000, guid: 9af0ff54ea3af9ba1af49427926fb496, type: 3}
     - target: {fileID: 8510201184172590988, guid: b3893e0c2d701c046970edae4e4c0dd8, type: 3}
       propertyPath: clips.Array.size
       value: 2
@@ -2850,7 +2858,7 @@ MonoBehaviour:
   idLevel: 1
   start: {fileID: 2061874704}
   zoomLevel: 1
-  cards: 000000000100000000000000
+  cards: 010000000100000001000000
   unlimitedCard: 0
   enemies: []
 --- !u!1001 &5275785407480056714
