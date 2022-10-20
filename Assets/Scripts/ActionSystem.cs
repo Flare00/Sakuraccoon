@@ -10,7 +10,6 @@ public class ActionSystem : MonoBehaviour
     private bool unlimited = false;
     public Player player;
     public GameState gameState;
-    public Level tmpLevel; //for test, to remove and implement LevelSystem
     private AudioSource audioSource;
     public AudioClip deathSound;
 
@@ -65,7 +64,7 @@ public class ActionSystem : MonoBehaviour
         {
             if (cards[i] != null)
             {
-                if (audioSource )
+                if (audioSource)
                 {
                     audioSource.clip = deathSound;
                     audioSource.Play();
@@ -73,18 +72,32 @@ public class ActionSystem : MonoBehaviour
                 cards[i].Destroy();
             }
         }
+        StopPlayer();
+        gameState.IncrementDeath();
+        LevelSystem.GetInstance().RestartLevel();
+    }
+
+    public void StopPlayer()
+    {
         player.StopAllCoroutines();
         CardDash.DASH_IN_EXECUTION = 0;
         player.GetComponent<Rigidbody2D>().gravityScale = GRAVITY_SCALE;
         player.GetComponent<Rigidbody2D>().velocity = new Vector2(0, 0);
         player.direction = 1.0f;
-        gameState.IncrementDeath();
-        tmpLevel.StartLevel();
-
     }
 
     public void FillCards(List<Card.CardType> list, bool unlimited)
     {
+        this.unlimited = unlimited;
+        for (int i = 0; i < NB_MAX_CARDS; i++)
+        {
+            if (this.cards[i] != null)
+            {
+                this.cards[i].Destroy();
+
+                this.cards[i] = null;
+            }
+        }
         for (int i = 0, max = list.Count; i < max && i < NB_MAX_CARDS; i++)
         {
             this.cards[i] = Card.GenerateCardByType(list[i]);

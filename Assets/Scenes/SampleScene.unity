@@ -1686,6 +1686,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 615a65d526dccf746b8da34c60bee1f5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &774906374 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2564622977530498406, guid: 43fdec7e0c5e76546885accf8fbcc24b, type: 3}
+  m_PrefabInstance: {fileID: 5275785407480056714}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &837186180
 GameObject:
   m_ObjectHideFlags: 0
@@ -1699,6 +1704,7 @@ GameObject:
   - component: {fileID: 837186181}
   - component: {fileID: 837186184}
   - component: {fileID: 837186185}
+  - component: {fileID: 837186186}
   m_Layer: 0
   m_Name: Scripts
   m_TagString: Untagged
@@ -1733,8 +1739,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 727368290}
   gameState: {fileID: 837186184}
-  tmpLevel: {fileID: 1353997399}
-  deathSound: {fileID: 8300000, guid: 9d1ed98c67b50d50b88750076565817a, type: 3}
+  clips:
+  - {fileID: 8300000, guid: 9d1ed98c67b50d50b88750076565817a, type: 3}
   cardsAnchorParent: {fileID: 1432526440}
 --- !u!4 &837186183
 Transform:
@@ -1860,6 +1866,21 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &837186186
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 837186180}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 811e2e7b4f9b3d3469d0261354056634, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  levelStartId: 0
+  levelsContainer: {fileID: 143105731}
+  mainCamera: {fileID: 774906374}
 --- !u!114 &959270522 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 959270522, guid: 43fdec7e0c5e76546885accf8fbcc24b, type: 3}
@@ -2505,21 +2526,13 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8510201184172590988, guid: b3893e0c2d701c046970edae4e4c0dd8, type: 3}
-      propertyPath: dashSound
-      value: 
-      objectReference: {fileID: 8300000, guid: 8b1a31a72a0b6f2eea0dd8c9f5ca5f3c, type: 3}
-    - target: {fileID: 8510201184172590988, guid: b3893e0c2d701c046970edae4e4c0dd8, type: 3}
-      propertyPath: jumpSound
-      value: 
-      objectReference: {fileID: 8300000, guid: 9af0ff54ea3af9ba1af49427926fb496, type: 3}
-    - target: {fileID: 8510201184172590988, guid: b3893e0c2d701c046970edae4e4c0dd8, type: 3}
       propertyPath: clips.Array.size
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 8510201184172590988, guid: b3893e0c2d701c046970edae4e4c0dd8, type: 3}
       propertyPath: clips.Array.data[0]
       value: 
-      objectReference: {fileID: 8300000, guid: 9af0ff54ea3af9ba1af49427926fb496, type: 3}
+      objectReference: {fileID: 8300000, guid: a3658fa585ad3bcc6a0b1505519ba29e, type: 3}
     - target: {fileID: 8510201184172590988, guid: b3893e0c2d701c046970edae4e4c0dd8, type: 3}
       propertyPath: clips.Array.data[1]
       value: 

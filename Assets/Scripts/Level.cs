@@ -17,7 +17,6 @@ public class Level : MonoBehaviour
 
     void Start()
     {
-        StartLevel();
     }
 
     public void StartLevel()
@@ -27,6 +26,11 @@ public class Level : MonoBehaviour
             actionSystem.player.transform.position = start.transform.position + new Vector3(0, 0.01f, 0);
             actionSystem.FillCards(cards, unlimitedCard);
         }
+    }
+
+    public void StopLevel()
+    {
+
     }
 
     
