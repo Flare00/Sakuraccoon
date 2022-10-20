@@ -18,7 +18,6 @@ public class LevelSystem
 
     private List<Level> levels;
     private Level currentLevel = null;
-    private int lastUnlockedLevel = 0;
     private GameObject camera;
     private ActionSystem actions;
 
@@ -58,6 +57,10 @@ public class LevelSystem
                 camera.transform.position = new Vector3(currentLevel.transform.position.x, currentLevel.transform.position.y -1.0f, camera.transform.position.z) ;
             }
             currentLevel.StartLevel();
+            if(GameState.GetInstance().Last_Unlocked_Level < currentLevel.idLevel)
+            {
+                GameState.GetInstance().Last_Unlocked_Level = currentLevel.idLevel;
+            }
         }
     }
 
@@ -65,6 +68,7 @@ public class LevelSystem
     {
         StopLevel();
         StartLevel(nextLevel);
+
     }
 
     public void StopLevel()
@@ -83,11 +87,6 @@ public class LevelSystem
         StartLevel(currentLevel);
     }
 
-    public int LastUnlockedLevel
-    {
-        get { return lastUnlockedLevel; }
-        set { lastUnlockedLevel = value; }
-    }
 
     public Level CurrentLevel
     {

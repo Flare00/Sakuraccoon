@@ -1702,7 +1702,6 @@ GameObject:
   - component: {fileID: 837186183}
   - component: {fileID: 837186182}
   - component: {fileID: 837186181}
-  - component: {fileID: 837186184}
   - component: {fileID: 837186185}
   - component: {fileID: 837186186}
   m_Layer: 0
@@ -1738,7 +1737,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 727368290}
-  gameState: {fileID: 837186184}
   deathSound: {fileID: 8300000, guid: 9d1ed98c67b50d50b88750076565817a, type: 3}
   cardsAnchorParent: {fileID: 1432526440}
 --- !u!4 &837186183
@@ -1756,19 +1754,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &837186184
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 837186180}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 762233372bdf93a4091b801899eaafb2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  deathCounter: {fileID: 959270522}
 --- !u!82 &837186185
 AudioSource:
   m_ObjectHideFlags: 0
@@ -1881,6 +1866,7 @@ MonoBehaviour:
   levelsContainer: {fileID: 143105731}
   mainCamera: {fileID: 774906374}
   actions: {fileID: 837186182}
+  deathCounter: {fileID: 959270522}
 --- !u!114 &959270522 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 959270522, guid: 43fdec7e0c5e76546885accf8fbcc24b, type: 3}

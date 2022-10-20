@@ -73,7 +73,7 @@ public class ActionSystem : MonoBehaviour
             }
         }
         StopPlayer();
-        gameState.IncrementDeath();
+        GameState.GetInstance().IncrementDeath();
         LevelSystem.GetInstance().RestartLevel();
     }
 
