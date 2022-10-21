@@ -67,8 +67,8 @@ public class LevelSystem
     public void ChangeLevel(Level nextLevel)
     {
         StopLevel();
+        GameState.GetInstance().ChangeLevel(nextLevel.idLevel);
         StartLevel(nextLevel);
-
     }
 
     public void StopLevel()

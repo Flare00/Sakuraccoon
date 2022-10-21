@@ -114,8 +114,9 @@ public class ActionSystem : MonoBehaviour
         pause = !pause;
         if (pauseGO != null)
         {
-            pauseGO.SetActive(pause);
+            pauseGO.SetActive(pause); 
         }
+        Time.timeScale = pause ? 0 : 1;
     }
 
     public void Restart()
