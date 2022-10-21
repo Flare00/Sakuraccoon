@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.Tilemaps;
 
 public abstract class Card 
 {
@@ -12,7 +13,8 @@ public abstract class Card
     public enum CardType{
         None,
         Jump,
-        Dash
+        Dash,
+        Dig
     }
 
     public void Destroy()
@@ -24,11 +26,11 @@ public abstract class Card
         }
     }
 
-    public abstract void DoAction(Player p, bool destroy = true);
+    public abstract bool DoAction(Player p, bool destroy = true); // return if action has be done
 
     public abstract CardType GetCardType();
 
-    public static Card GenerateCardByType(CardType type)
+    public static Card GenerateCardByType(CardType type, Tilemap brick)
     {
         Card card = null;
         string cardFileName = "";
@@ -41,6 +43,10 @@ public abstract class Card
             case Card.CardType.Dash:
                 card = new CardDash();
                 cardFileName = "CardDash";
+                break;
+            case Card.CardType.Dig:
+                card = new CardDig(brick);
+                cardFileName = "CardDig";
                 break;
         }
         if(card != null)

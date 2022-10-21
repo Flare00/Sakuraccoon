@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Tilemaps;
 
 public class ActionSystem : MonoBehaviour
 {
@@ -15,6 +16,7 @@ public class ActionSystem : MonoBehaviour
     public AudioClip deathSound;
 
     public GameObject cardsAnchorParent;
+    public Tilemap blocs;
 
     private GameObject[] cardsAnchor;
     private bool pause = false;
@@ -43,8 +45,8 @@ public class ActionSystem : MonoBehaviour
                 {
                     player.CardPlayerAnim(cards[pos].GetCardType());
                 }
-                cards[pos].DoAction(player, !unlimited);
-                if (!unlimited)
+                bool success = cards[pos].DoAction(player, !unlimited);
+                if (!unlimited && success)
                 {
                     cards[pos] = null;
                 }
@@ -98,7 +100,7 @@ public class ActionSystem : MonoBehaviour
         }
         for (int i = 0, max = list.Count; i < max && i < NB_MAX_CARDS; i++)
         {
-            this.cards[i] = Card.GenerateCardByType(list[i]);
+            this.cards[i] = Card.GenerateCardByType(list[i], blocs);
             this.cards[i].cardGameObject.transform.SetParent(cardsAnchor[i].transform, false);
             //this.cards[i].cardGameObject.transform.position = new Vector3(0, 0, 0);
         }

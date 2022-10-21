@@ -8,11 +8,12 @@ public class CardDash : Card
     private float dashDistance = 30.0f;
     private float dashDuration = 0.2f;
 
-    public override void DoAction(Player p, bool destroy = true){
+    public override bool DoAction(Player p, bool destroy = true){
         Rigidbody2D rigid = p.GetComponent<Rigidbody2D>();
         p.StartCoroutine(DashHandler(p));
         if (destroy)
             Destroy();
+        return true;
     }
 
     public override Card.CardType GetCardType()

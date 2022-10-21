@@ -2222,6 +2222,7 @@ MonoBehaviour:
   pauseGO: {fileID: 1991876264}
   deathSound: {fileID: 8300000, guid: 9d1ed98c67b50d50b88750076565817a, type: 3}
   cardsAnchorParent: {fileID: 1432526440}
+  blocs: {fileID: 89702069}
 --- !u!4 &837186183
 Transform:
   m_ObjectHideFlags: 0
@@ -3547,7 +3548,7 @@ MonoBehaviour:
   idLevel: 1
   start: {fileID: 2061874704}
   zoomLevel: 1
-  cards: 010000000100000001000000
+  cards: 0100000001000000020000000300000003000000
   unlimitedCard: 0
   enemies: []
 --- !u!1001 &5275785407480056714

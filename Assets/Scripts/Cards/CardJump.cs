@@ -6,7 +6,7 @@ using static UnityEngine.Rendering.DebugUI;
 public class CardJump : Card
 {
     private float jumpPower = 15.0f;
-    public override void DoAction(Player p,bool destroy = true){
+    public override bool DoAction(Player p,bool destroy = true){
         Rigidbody2D rigid = p.GetComponent<Rigidbody2D>();
         if (rigid != null)
         {
@@ -14,6 +14,7 @@ public class CardJump : Card
         }
         if (destroy)
             Destroy();
+        return true;
     }
 
     public override Card.CardType GetCardType()
