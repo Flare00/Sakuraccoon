@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
@@ -27,15 +28,13 @@ public class GameState
     public GameState()
     {
         listeners = new List<GameStateListener>();
-        Last_Unlocked_Level = 0;
-        Number_Of_Death = 0;
-        Time_Played_In_Total = 0;
         Unlocked_Cards = new List<Card.CardType>();
-        Max_Score_Endless = 0;
+
     }
 
     public void AddUnlockedCard(Card.CardType card){
         this.Unlocked_Cards.Add(card);
+        SaveGameStates();
     }
 
     public void IncrementDeath(){
@@ -43,6 +42,16 @@ public class GameState
         for(int i = 0, max = listeners.Count; i < max; i++)
         {
             listeners[i].DeathIncrease();
+        }
+        SaveGameStates();
+    }
+
+    public void ChangeLevel(int level)
+    {
+        if(Last_Unlocked_Level < level)
+        {
+            this.Last_Unlocked_Level = level;
+            SaveGameStates();
         }
     }
 
@@ -63,5 +72,45 @@ public class GameState
     public void RemoveListener(GameStateListener listener)
     {
         listeners.Remove(listener);
+    }
+
+    public static void LoadGameStates()
+    {
+        GameState gs = GameState.GetInstance();
+        gs.Last_Unlocked_Level = PlayerPrefs.GetInt("Last_Unlocked_Level", 0);
+        gs.Number_Of_Death = PlayerPrefs.GetInt("Number_Of_Death", 0);
+        gs.Time_Played_In_Total = Convert.ToDouble(PlayerPrefs.GetString("Time_Played_In_Total", "0"));
+        gs.Max_Score_Endless = PlayerPrefs.GetInt("Max_Score_Endless", 0);
+        string uCards = PlayerPrefs.GetString("Unlocked_Cards", "");
+        string[] splitted = uCards.Split('\u002C');
+        gs.Unlocked_Cards.Clear();
+        foreach (string s in splitted)
+        {
+            Card.CardType tmp = Card.GetCardTypeByString(s);
+            if(tmp != Card.CardType.None)
+            {
+                gs.Unlocked_Cards.Add(tmp);
+            }
+        }
+    }
+
+    public static void SaveGameStates()
+    {
+        GameState gs = GameState.GetInstance();
+        PlayerPrefs.SetInt("Last_Unlocked_Level", gs.Last_Unlocked_Level);
+        PlayerPrefs.SetInt("Number_Of_Death", gs.Number_Of_Death);
+        PlayerPrefs.SetString("Time_Played_In_Total", "" + gs.Time_Played_In_Total);
+        PlayerPrefs.SetInt("Max_Score_Endless", gs.Max_Score_Endless);
+        string uCards = "";
+        for(int i = 0, max = gs.Unlocked_Cards.Count; i < max; i++)
+        {
+            uCards += gs.Unlocked_Cards[i].ToString();
+            if (i < max - 1)
+            {
+                uCards += ",";
+            }
+        }
+        PlayerPrefs.SetString("Unlocked_Cards", uCards);
+        PlayerPrefs.Save();
     }
 }

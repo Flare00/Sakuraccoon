@@ -53,6 +53,22 @@ public class PlayerInputs : MonoBehaviour, ControlsGame.IPlayerActions
         }
     }
 
+    void ControlsGame.IPlayerActions.OnPause(InputAction.CallbackContext context)
+    {
+        if (context.performed)
+        {
+            action.TogglePause();
+        }
+    }
+
+    void ControlsGame.IPlayerActions.OnRestart(InputAction.CallbackContext context)
+    {
+        if (context.performed)
+        {
+            action.Restart();
+        }
+    }
+
     void ControlsGame.IPlayerActions.OnSubmit(InputAction.CallbackContext context)
     {
     }

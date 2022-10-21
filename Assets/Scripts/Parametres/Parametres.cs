@@ -20,12 +20,14 @@ public class Parametres
 
     public static void LoadParameters()
     {
-        GetInstance().MusicVolume = 50;
-        GetInstance().SoundVolume = 50;
+        GetInstance().MusicVolume = PlayerPrefs.GetInt("Music",100);
+        GetInstance().SoundVolume = PlayerPrefs.GetInt("Sound", 100);
     }
 
     public static void SaveParameters()
     {
-
+        PlayerPrefs.SetInt("Music", GetInstance().MusicVolume);
+        PlayerPrefs.SetInt("Sound", GetInstance().SoundVolume);
+        PlayerPrefs.Save();
     }
 }

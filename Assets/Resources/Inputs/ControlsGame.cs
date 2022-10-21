@@ -89,6 +89,24 @@ public partial class @ControlsGame : IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Restart"",
+                    ""type"": ""Button"",
+                    ""id"": ""83751019-7a2c-4570-855e-4e39ca31e375"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Pause"",
+                    ""type"": ""Button"",
+                    ""id"": ""0ca58b0e-d894-44b6-9f72-8d598379bfa3"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -399,6 +417,78 @@ public partial class @ControlsGame : IInputActionCollection2, IDisposable
                     ""action"": ""Submit"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""6a6a2bfb-3a3b-43a6-bec6-7bae7fcc18e6"",
+                    ""path"": ""<Keyboard>/r"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Restart"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""f400f804-c938-41d7-b982-3427b9da05b8"",
+                    ""path"": ""<Gamepad>/select"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Restart"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""bf87500e-873d-45b3-ac71-190f149d3298"",
+                    ""path"": ""<Keyboard>/escape"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Pause"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""6e31ad2d-b4c8-4d96-9d42-83ef76b5cedf"",
+                    ""path"": ""<Gamepad>/start"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Pause"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                }
+            ]
+        },
+        {
+            ""name"": ""New action map"",
+            ""id"": ""f4d42591-d82c-43a0-afdd-e8f554de4467"",
+            ""actions"": [
+                {
+                    ""name"": ""New action"",
+                    ""type"": ""Button"",
+                    ""id"": ""3fce5607-22a3-4ae2-b068-4b8ae59d8352"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                }
+            ],
+            ""bindings"": [
+                {
+                    ""name"": """",
+                    ""id"": ""17dfd807-5e51-453a-983f-63aa3f9f17ec"",
+                    ""path"": """",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""New action"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -414,6 +504,11 @@ public partial class @ControlsGame : IInputActionCollection2, IDisposable
         m_Player_Card4 = m_Player.FindAction("Card 4", throwIfNotFound: true);
         m_Player_Card5 = m_Player.FindAction("Card 5", throwIfNotFound: true);
         m_Player_Submit = m_Player.FindAction("Submit", throwIfNotFound: true);
+        m_Player_Restart = m_Player.FindAction("Restart", throwIfNotFound: true);
+        m_Player_Pause = m_Player.FindAction("Pause", throwIfNotFound: true);
+        // New action map
+        m_Newactionmap = asset.FindActionMap("New action map", throwIfNotFound: true);
+        m_Newactionmap_Newaction = m_Newactionmap.FindAction("New action", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -480,6 +575,8 @@ public partial class @ControlsGame : IInputActionCollection2, IDisposable
     private readonly InputAction m_Player_Card4;
     private readonly InputAction m_Player_Card5;
     private readonly InputAction m_Player_Submit;
+    private readonly InputAction m_Player_Restart;
+    private readonly InputAction m_Player_Pause;
     public struct PlayerActions
     {
         private @ControlsGame m_Wrapper;
@@ -491,6 +588,8 @@ public partial class @ControlsGame : IInputActionCollection2, IDisposable
         public InputAction @Card4 => m_Wrapper.m_Player_Card4;
         public InputAction @Card5 => m_Wrapper.m_Player_Card5;
         public InputAction @Submit => m_Wrapper.m_Player_Submit;
+        public InputAction @Restart => m_Wrapper.m_Player_Restart;
+        public InputAction @Pause => m_Wrapper.m_Player_Pause;
         public InputActionMap Get() { return m_Wrapper.m_Player; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -521,6 +620,12 @@ public partial class @ControlsGame : IInputActionCollection2, IDisposable
                 @Submit.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnSubmit;
                 @Submit.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnSubmit;
                 @Submit.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnSubmit;
+                @Restart.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnRestart;
+                @Restart.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnRestart;
+                @Restart.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnRestart;
+                @Pause.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnPause;
+                @Pause.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnPause;
+                @Pause.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnPause;
             }
             m_Wrapper.m_PlayerActionsCallbackInterface = instance;
             if (instance != null)
@@ -546,10 +651,49 @@ public partial class @ControlsGame : IInputActionCollection2, IDisposable
                 @Submit.started += instance.OnSubmit;
                 @Submit.performed += instance.OnSubmit;
                 @Submit.canceled += instance.OnSubmit;
+                @Restart.started += instance.OnRestart;
+                @Restart.performed += instance.OnRestart;
+                @Restart.canceled += instance.OnRestart;
+                @Pause.started += instance.OnPause;
+                @Pause.performed += instance.OnPause;
+                @Pause.canceled += instance.OnPause;
             }
         }
     }
     public PlayerActions @Player => new PlayerActions(this);
+
+    // New action map
+    private readonly InputActionMap m_Newactionmap;
+    private INewactionmapActions m_NewactionmapActionsCallbackInterface;
+    private readonly InputAction m_Newactionmap_Newaction;
+    public struct NewactionmapActions
+    {
+        private @ControlsGame m_Wrapper;
+        public NewactionmapActions(@ControlsGame wrapper) { m_Wrapper = wrapper; }
+        public InputAction @Newaction => m_Wrapper.m_Newactionmap_Newaction;
+        public InputActionMap Get() { return m_Wrapper.m_Newactionmap; }
+        public void Enable() { Get().Enable(); }
+        public void Disable() { Get().Disable(); }
+        public bool enabled => Get().enabled;
+        public static implicit operator InputActionMap(NewactionmapActions set) { return set.Get(); }
+        public void SetCallbacks(INewactionmapActions instance)
+        {
+            if (m_Wrapper.m_NewactionmapActionsCallbackInterface != null)
+            {
+                @Newaction.started -= m_Wrapper.m_NewactionmapActionsCallbackInterface.OnNewaction;
+                @Newaction.performed -= m_Wrapper.m_NewactionmapActionsCallbackInterface.OnNewaction;
+                @Newaction.canceled -= m_Wrapper.m_NewactionmapActionsCallbackInterface.OnNewaction;
+            }
+            m_Wrapper.m_NewactionmapActionsCallbackInterface = instance;
+            if (instance != null)
+            {
+                @Newaction.started += instance.OnNewaction;
+                @Newaction.performed += instance.OnNewaction;
+                @Newaction.canceled += instance.OnNewaction;
+            }
+        }
+    }
+    public NewactionmapActions @Newactionmap => new NewactionmapActions(this);
     public interface IPlayerActions
     {
         void OnMove(InputAction.CallbackContext context);
@@ -559,5 +703,11 @@ public partial class @ControlsGame : IInputActionCollection2, IDisposable
         void OnCard4(InputAction.CallbackContext context);
         void OnCard5(InputAction.CallbackContext context);
         void OnSubmit(InputAction.CallbackContext context);
+        void OnRestart(InputAction.CallbackContext context);
+        void OnPause(InputAction.CallbackContext context);
+    }
+    public interface INewactionmapActions
+    {
+        void OnNewaction(InputAction.CallbackContext context);
     }
 }

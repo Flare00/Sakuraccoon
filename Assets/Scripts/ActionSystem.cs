@@ -10,12 +10,14 @@ public class ActionSystem : MonoBehaviour
     private bool unlimited = false;
     public Player player;
     public GameState gameState;
+    public GameObject pauseGO;
     private AudioSource audioSource;
     public AudioClip deathSound;
 
     public GameObject cardsAnchorParent;
 
     private GameObject[] cardsAnchor;
+    private bool pause = false;
 
     private void Start()
     {
@@ -33,7 +35,7 @@ public class ActionSystem : MonoBehaviour
 
     public void PlayCard(int pos)
     {
-        if (pos >= 0 && pos < NB_MAX_CARDS)
+        if (pos >= 0 && pos < NB_MAX_CARDS && !pause)
         {
             if (cards[pos] != null)
             {
@@ -52,7 +54,7 @@ public class ActionSystem : MonoBehaviour
 
     public void Move(Vector2 axis)
     {
-        if (player != null)
+        if (player != null && !pause)
         {
             player.MoveLeftRight(axis.x);
         }
@@ -105,5 +107,19 @@ public class ActionSystem : MonoBehaviour
     private void Update()
     {
 
+    }
+
+    public void TogglePause()
+    {
+        pause = !pause;
+        if (pauseGO != null)
+        {
+            pauseGO.SetActive(pause);
+        }
+    }
+
+    public void Restart()
+    {
+        this.Death();
     }
 }

@@ -12,7 +12,8 @@ public class MainMenuScript : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        Parametres.LoadParameters();
+        GameState.LoadGameStates();
     }
 
     // Update is called once per frame
@@ -49,7 +50,6 @@ public class MainMenuScript : MonoBehaviour
         asyncOperation.allowSceneActivation = false;
         while (!asyncOperation.isDone)
         {
-            Debug.Log("Progress : " + asyncOperation.progress);
             if (asyncOperation.progress >= 0.9f)
             {
                 RenderTexture tex = menuCameraTex.RenderTex();
@@ -58,6 +58,5 @@ public class MainMenuScript : MonoBehaviour
             }
             yield return null;
         }
-
     }
 }
