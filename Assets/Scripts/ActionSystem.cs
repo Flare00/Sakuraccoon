@@ -79,11 +79,7 @@ public class ActionSystem : MonoBehaviour
 
     public void StopPlayer()
     {
-        player.StopAllCoroutines();
-        CardDash.DASH_IN_EXECUTION = 0;
-        player.GetComponent<Rigidbody2D>().gravityScale = GRAVITY_SCALE;
-        player.GetComponent<Rigidbody2D>().velocity = new Vector2(0, 0);
-        player.direction = 1.0f;
+        player.Stop();
     }
 
     public void FillCards(List<Card.CardType> list, bool unlimited)
