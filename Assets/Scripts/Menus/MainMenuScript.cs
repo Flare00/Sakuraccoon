@@ -33,7 +33,7 @@ public class MainMenuScript : MonoBehaviour
     public void SettingsClicked()
     {
         Debug.Log("Settings");
-        StartCoroutine(LoadS("TransitionTest"));
+        StartCoroutine(LoadS("OptionScene"));
 
     }
 
