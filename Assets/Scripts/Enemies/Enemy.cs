@@ -53,7 +53,7 @@ public abstract class Enemy : MonoBehaviour
                 enemyPrefabName = "Bear";
                 break;
             case EnemyType.Panda:
-                //enemyPrefabName = "Panda"; //Panda not done yet
+                enemyPrefabName = "Panda";
                 break;
         }
 

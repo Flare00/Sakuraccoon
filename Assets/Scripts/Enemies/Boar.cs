@@ -34,7 +34,8 @@ public class Boar : Enemy
             if (isAttacking)
             {
                 StartCoroutine(WaitAndAttack());
-            } else if (!waitBeforeMove )
+            }
+            else if (!waitBeforeMove)
             {
                 Move();
             }
@@ -57,7 +58,7 @@ public class Boar : Enemy
         }
         voidPos.x += right ? 2 : -2;
         voidPos.y -= 1;
-        if (brick.GetTile(voidPos) == null || distance < 0.5f )
+        if (brick.GetTile(voidPos) == null || distance < 0.5f)
         {
             StartCoroutine(WaitAndTurn());
         }
@@ -81,7 +82,7 @@ public class Boar : Enemy
     {
         rb.velocity = new Vector2(0, rb.velocity.y);
         waitBeforeMove = true;
-        if(!isAttacking)
+        if (!isAttacking)
             yield return new WaitForSeconds(waitingTime / 2.0f);
         if (!isAttacking)
             Flip();
@@ -116,10 +117,10 @@ public class Boar : Enemy
             }
             yield return new WaitForSeconds(0.05f);
         }
-        Debug.Log("EXIT");
         isAttacking = false;
 
-        if (stopped) {
+        if (stopped)
+        {
             rigid.gravityScale = ActionSystem.GRAVITY_SCALE;
             rigid.velocity = new Vector2(right ? 0.1f : -0.1f, 0f);
             StartCoroutine(WaitAndTurn());
@@ -135,13 +136,16 @@ public class Boar : Enemy
 
     public override bool CheckIfAttack()
     {
-        RaycastHit2D hit = SendRaycast();
-
-        if (hit)
+        if (canAttack)
         {
-            if (hit.collider.CompareTag("Player"))
+            RaycastHit2D hit = SendRaycast();
+
+            if (hit)
             {
-                return true;
+                if (hit.collider.CompareTag("Player"))
+                {
+                    return true;
+                }
             }
         }
         return false;
