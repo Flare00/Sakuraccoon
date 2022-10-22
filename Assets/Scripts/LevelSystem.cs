@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Tilemaps;
 using static UnityEngine.InputManagerEntry;
 
 public class LevelSystem
@@ -20,6 +21,9 @@ public class LevelSystem
     private Level currentLevel = null;
     private GameObject camera;
     private ActionSystem actions;
+
+    public Tilemap BlocksTiles { get; set; }
+    public Tilemap TrapsTiles { get; set; }
 
     public LevelSystem()
     {
@@ -114,6 +118,8 @@ public class LevelSystem
             levels.Add(levelsList[i]);
         }
     }
+
+
 
 
 }

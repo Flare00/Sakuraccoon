@@ -7,29 +7,30 @@ using static UnityEngine.Rendering.DebugUI;
 public class CardDig : Card
 {
     private Tilemap brick;
-    public CardDig(Tilemap brick)
+    public CardDig()
     {
-        this.brick = brick;
+        this.brick = LevelSystem.GetInstance().BlocksTiles;
     }
     public override bool DoAction(Player p,bool destroy = true){
-        Vector3Int pos = brick.WorldToCell(p.transform.localPosition);
-        pos.y -= 1;
+        Vector3 originalPos = p.transform.localPosition;
+        Vector3Int pos = brick.WorldToCell(originalPos);
+        pos.y--;
         TileBase b = brick.GetTile(pos);
         if (b != null)
         {
             TileBase tmp = null;
             do
             {
-                pos.y -= 1;
+                pos.y--;
                 tmp = brick.GetTile(pos);
                 if(tmp == null)
                 {
-                    pos.y -= 1;
+                    pos.y--;
                     tmp = brick.GetTile(pos);
                 }
             } while (tmp != null);
-
-            p.transform.position = brick.CellToWorld(pos);
+            pos.y++;
+            p.transform.position = new Vector3(originalPos.x, brick.CellToWorld(pos).y - 0.1f, originalPos.z);
             if (destroy)
                 Destroy();
             return true;

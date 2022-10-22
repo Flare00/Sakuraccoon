@@ -84,7 +84,7 @@ public class PlayerInputs : MonoBehaviour, ControlsGame.IPlayerActions
     // Update is called once per frame
     void Update()
     {
-        if (isMoving && action != null)
+        if (isMoving && action != null )
         {
             action.Move(moveValue);
         }

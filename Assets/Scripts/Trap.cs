@@ -13,6 +13,12 @@ public class Trap : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        PlayerCollision();
+        if (other.CompareTag("Player"))
+        {
+            PlayerCollision();
+        } else if (other.CompareTag("Enemy"))
+        {
+            other.GetComponent<Enemy>().Death();
+        }
     }
 }

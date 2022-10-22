@@ -5,15 +5,33 @@ using UnityEngine;
 public class Bear : Enemy
 {
     public bool isPanda = false;
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
 
-    // Update is called once per frame
     void Update()
     {
-        
+        if (isPlaying)
+        {
+            isAttacking = CheckIfAttack();
+        }
+    }
+
+
+
+
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.collider.CompareTag("Player"))
+        {
+            actionSystem.Death();
+        }
+    }
+
+    public override bool CheckIfAttack()
+    {
+        return false;
+    }
+    public override EnemyType GetEnemyType()
+    {
+        return isPanda ? EnemyType.Panda : EnemyType.Bear;
     }
 }

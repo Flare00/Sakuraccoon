@@ -1,5 +1,7 @@
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Rendering.VirtualTexturing;
+
 public class PSEffect : MonoBehaviour
 {
     private List<Particle> particles;
@@ -61,10 +63,12 @@ public class PSEffect : MonoBehaviour
 
         public void Flip()
         {
-            for (int i = 0, max = go.transform.childCount; i < max; i++)
-            {
-                Transform g = go.transform.GetChild(i);
-                g.localScale = new Vector3(-g.localScale.x, g.localScale.y, g.localScale.z);
+            if (go != null) { 
+                for (int i = 0, max = go.transform.childCount; i < max; i++)
+                {
+                    Transform g = go.transform.GetChild(i);
+                    g.localScale = new Vector3(-g.localScale.x, g.localScale.y, g.localScale.z);
+                }
             }
         }
     }

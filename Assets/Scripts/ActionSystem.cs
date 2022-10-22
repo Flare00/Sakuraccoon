@@ -100,8 +100,12 @@ public class ActionSystem : MonoBehaviour
         }
         for (int i = 0, max = list.Count; i < max && i < NB_MAX_CARDS; i++)
         {
-            this.cards[i] = Card.GenerateCardByType(list[i], blocs);
-            this.cards[i].cardGameObject.transform.SetParent(cardsAnchor[i].transform, false);
+            Card card = Card.GenerateCardByType(list[i], this);
+            if (card != null)
+            {
+                this.cards[i] = card;
+                this.cards[i].cardGameObject.transform.SetParent(cardsAnchor[i].transform, false);
+            }
             //this.cards[i].cardGameObject.transform.position = new Vector3(0, 0, 0);
         }
     }

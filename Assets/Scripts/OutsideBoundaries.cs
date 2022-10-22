@@ -9,7 +9,13 @@ public class OutsideBoundaries : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        Debug.Log("Outside Boundaries");
-        action.Death();
+        if (other.CompareTag("Player"))
+        {
+            action.Death();
+        } else if (other.CompareTag("Enemy"))
+        {
+            Enemy e = other.GetComponent<Enemy>();
+            e.StartCoroutine(e.WaitAndDeath());
+        }
     }
 }

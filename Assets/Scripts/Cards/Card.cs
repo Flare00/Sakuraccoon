@@ -14,7 +14,8 @@ public abstract class Card
         None,
         Jump,
         Dash,
-        Dig
+        Dig,
+        CasseNoisette, 
     }
 
     public void Destroy()
@@ -30,7 +31,7 @@ public abstract class Card
 
     public abstract CardType GetCardType();
 
-    public static Card GenerateCardByType(CardType type, Tilemap brick)
+    public static Card GenerateCardByType(CardType type, ActionSystem actionSystem)
     {
         Card card = null;
         string cardFileName = "";
@@ -45,8 +46,12 @@ public abstract class Card
                 cardFileName = "CardDash";
                 break;
             case Card.CardType.Dig:
-                card = new CardDig(brick);
+                card = new CardDig();
                 cardFileName = "CardDig";
+                break;
+            case Card.CardType.CasseNoisette:
+                card = new CardCasseNoisette();
+                cardFileName = "CardCasseNoisette";
                 break;
         }
         if(card != null)

@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.Tilemaps;
 
 public class GameSystem : MonoBehaviour, GameStateListener
 {
@@ -11,6 +12,9 @@ public class GameSystem : MonoBehaviour, GameStateListener
     public GameObject mainCamera;
     public ActionSystem actions;
 
+    public Tilemap blocks;
+    public Tilemap traps;
+
     //Affichage
     public TextMeshProUGUI deathCounter;
 
@@ -19,6 +23,8 @@ public class GameSystem : MonoBehaviour, GameStateListener
     void Start()
     {
         GameState.GetInstance().AddListener(this);
+        LevelSystem.GetInstance().BlocksTiles = blocks;
+        LevelSystem.GetInstance().TrapsTiles = traps;
     }
 
     // Update is called once per frame
