@@ -7,13 +7,24 @@ public class TypewriterEffect : MonoBehaviour
 {
     [SerializeField] private float typewritterSpeed = 50f;
 
-    public Coroutine Run(string textToType, TMP_Text textLabel)
+    public bool isRunning { get; private set; }
+
+    private Coroutine typingCoroutine;
+
+    public void Run(string textToType, TMP_Text textLabel)
     {
-        return StartCoroutine(TypeText(textToType, textLabel));
+        typingCoroutine = StartCoroutine(TypeText(textToType, textLabel));
+    }
+
+    public void Stop()
+    {
+        StopCoroutine(typingCoroutine);
+        isRunning = false;
     }
 
     public IEnumerator TypeText(string textToType, TMP_Text textLabel)
     {
+        isRunning = true;
         textLabel.text = string.Empty;
 
         float t = 0;
@@ -29,6 +40,6 @@ public class TypewriterEffect : MonoBehaviour
 
             yield return null;
         }
-        textLabel.text = textToType;
+        isRunning = false;
     }
 }

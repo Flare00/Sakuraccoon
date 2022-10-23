@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
+    [SerializeField] private DialogUI dialogUI;
+
     Rigidbody2D rigid;
     AudioSource aud;
     public AudioClip jumpSound;
@@ -97,6 +99,21 @@ public class Player : MonoBehaviour
         if (aud)
         {
             aud.Stop();
+        }
+    }
+
+    /* UI FUNCTIONS */
+
+    public DialogUI DialogUI => dialogUI;
+
+    public IInteractable Interactable { get; set; }
+
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.E))
+        {
+            // ?. : Interactable != null then call Interact()
+            Interactable?.Interact(this);
         }
     }
 }

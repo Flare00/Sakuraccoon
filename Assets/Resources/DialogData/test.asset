@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: test
   m_EditorClassIdentifier: 
   dialog:
-  - This is a line.
-  - Helooooow!
+  - Ceci est un test.
+  - Incroyable cette boite de dialogue vous ne trouvez pas?
   responses:
   - responseText: Yes
     dialogObject: {fileID: 11400000, guid: 534b4598f97dfac4f82079602417b79f, type: 2}
