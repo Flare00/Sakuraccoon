@@ -44,6 +44,18 @@ PrefabInstance:
       propertyPath: looping
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2849432201267658691, guid: 938f1e8669116524d99a611a7801ccbb, type: 3}
+      propertyPath: m_SortingLayer
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 2849432201267658691, guid: 938f1e8669116524d99a611a7801ccbb, type: 3}
+      propertyPath: m_SortingOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2849432201267658691, guid: 938f1e8669116524d99a611a7801ccbb, type: 3}
+      propertyPath: m_SortingLayerID
+      value: 455932961
+      objectReference: {fileID: 0}
     - target: {fileID: 3631215421847195353, guid: 938f1e8669116524d99a611a7801ccbb, type: 3}
       propertyPath: m_Name
       value: Particle

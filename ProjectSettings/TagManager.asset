@@ -43,9 +43,21 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: Parralax
+    uniqueID: 1351876075
+    locked: 0
   - name: Blocs
     uniqueID: 3814030895
     locked: 0
-  - name: Traps
-    uniqueID: 1351876075
+  - name: Enemies
+    uniqueID: 1802620709
+    locked: 0
+  - name: Effects
+    uniqueID: 455932961
+    locked: 0
+  - name: Player
+    uniqueID: 1202698411
+    locked: 0
+  - name: Menu
+    uniqueID: 4189477699
     locked: 0
