@@ -15,7 +15,10 @@ public abstract class Card
         Jump,
         Dash,
         Dig,
-        CasseNoisette, 
+        CasseNoisette,
+        Climb,
+        Baseball,
+        Roll
     }
 
     public void Destroy()
@@ -52,6 +55,18 @@ public abstract class Card
             case Card.CardType.CasseNoisette:
                 card = new CardCasseNoisette();
                 cardFileName = "CardCasseNoisette";
+                break;
+            case Card.CardType.Roll:
+                card = new CardRoll();
+                cardFileName = "CardRoll";
+                break;
+            case Card.CardType.Climb:
+                card = new CardClimb();
+                cardFileName = "CardClimb";
+                break;
+            case Card.CardType.Baseball:
+                card = new CardBaseball();
+                cardFileName = "CardBaseball";
                 break;
         }
         if(card != null)

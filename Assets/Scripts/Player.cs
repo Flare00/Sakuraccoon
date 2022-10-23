@@ -23,7 +23,7 @@ public class Player : MonoBehaviour
             // Quand le dash est en cours d'exec
         }
 
-        if (CardDash.DASH_IN_EXECUTION <= 0)
+        if (CardDash.DASH_IN_EXECUTION <= 0 && CardRoll.ROLL_IN_EXECUTION <= 0)
         {
             float tmpDir = value > 0 ? 1.0f : (value < 0 ? -1.0f : direction);
             if ((tmpDir >= 0) != (direction >= 0))
@@ -80,6 +80,7 @@ public class Player : MonoBehaviour
     {
         StopAllCoroutines();
         CardDash.DASH_IN_EXECUTION = 0;
+        CardRoll.ROLL_IN_EXECUTION = 0;
         GetComponent<Rigidbody2D>().gravityScale = ActionSystem.GRAVITY_SCALE;
         GetComponent<Rigidbody2D>().velocity = new Vector2(0, 0);
         direction = 1.0f;

@@ -77,7 +77,6 @@ public class LevelSystem
 
     public void StopLevel()
     {
-        Debug.Log("Actions : " + actions);
         actions.StopPlayer();
         if (currentLevel != null)
         {

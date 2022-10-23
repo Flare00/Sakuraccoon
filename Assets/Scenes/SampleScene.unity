@@ -9724,7 +9724,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 811e2e7b4f9b3d3469d0261354056634, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  levelStartId: 4
+  levelStartId: 2
   levelsContainer: {fileID: 143105731}
   Cameras: {fileID: 1629579199}
   MainCamera: {fileID: 774906374}
