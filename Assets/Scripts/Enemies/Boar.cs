@@ -101,7 +101,6 @@ public class Boar : Enemy
         Rigidbody2D rigid = GetComponent<Rigidbody2D>();
         rigid.velocity = right ? Vector2.right : Vector2.left;
         rigid.AddForce(new Vector2(dashSpeed * (right ? 1.0f : -1.0f), 0f), ForceMode2D.Impulse);
-        rigid.gravityScale = 0f;
         bool exit = false;
         bool stopped = false;
         while (!exit)
@@ -121,7 +120,6 @@ public class Boar : Enemy
 
         if (stopped)
         {
-            rigid.gravityScale = ActionSystem.GRAVITY_SCALE;
             rigid.velocity = new Vector2(right ? 0.1f : -0.1f, 0f);
             StartCoroutine(WaitAndTurn());
         }
