@@ -9,7 +9,8 @@ public class GameSystem : MonoBehaviour, GameStateListener
 
     public int levelStartId = 0;
     public GameObject levelsContainer;
-    public GameObject mainCamera;
+    public GameObject Cameras;
+    public GameObject MainCamera;
     public ActionSystem actions;
 
     public Tilemap blocks;
@@ -25,6 +26,7 @@ public class GameSystem : MonoBehaviour, GameStateListener
         GameState.GetInstance().AddListener(this);
         LevelSystem.GetInstance().BlocksTiles = blocks;
         LevelSystem.GetInstance().TrapsTiles = traps;
+        MainCamera.transform.localPosition = Vector3.zero;
     }
 
     // Update is called once per frame
@@ -41,7 +43,7 @@ public class GameSystem : MonoBehaviour, GameStateListener
 
     private void LateStart()
     {
-        LevelSystem.GetInstance().Camera = mainCamera;
+        LevelSystem.GetInstance().Camera = Cameras;
         LevelSystem.GetInstance().Actions = actions;
         LevelSystem.GetInstance().FillLevels(levelsContainer);
         LevelSystem.GetInstance().StartLevel(levelStartId);
