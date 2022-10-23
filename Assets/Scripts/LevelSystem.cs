@@ -2,7 +2,6 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Tilemaps;
-using static UnityEngine.InputManagerEntry;
 
 public class LevelSystem
 {
@@ -58,8 +57,9 @@ public class LevelSystem
             if (camera != null)
             {
 
-                camera.transform.position = new Vector3(currentLevel.transform.position.x, currentLevel.transform.position.y -1.0f, camera.transform.position.z) ;
+                camera.transform.position = new Vector3(currentLevel.transform.position.x, currentLevel.transform.position.y -4.0f, camera.transform.position.z) ;
             }
+            currentLevel.gameObject.SetActive(true);
             currentLevel.StartLevel();
             if(GameState.GetInstance().Last_Unlocked_Level < currentLevel.idLevel)
             {
@@ -115,6 +115,7 @@ public class LevelSystem
         for(int i = 0, max = levelsList.Length; i < max; i++)
         {
             levels.Add(levelsList[i]);
+            levelsList[i].gameObject.SetActive(false);
         }
     }
 

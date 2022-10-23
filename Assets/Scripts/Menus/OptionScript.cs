@@ -28,6 +28,8 @@ public class OptionScript : MonoBehaviour
 
     public void MainMenu()
     {
+
+        Time.timeScale = 1;
         StartCoroutine(LoadS("MainMenuScene"));
     }
 

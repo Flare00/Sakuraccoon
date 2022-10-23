@@ -12,7 +12,7 @@ public class Relic : MonoBehaviour
     private void OnDrawGizmos()
     {
         Vector3 pos = cameraTransform.position;
-        Gizmos.color = Color.black;
+        Gizmos.color = Color.red;
         Gizmos.DrawLine(p1 + pos, p2 + pos);
         Gizmos.DrawLine(p2 + pos, p3 + pos);
         Gizmos.DrawLine(p3 + pos, p4 + pos);
