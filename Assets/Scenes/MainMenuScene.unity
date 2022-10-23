@@ -474,6 +474,10 @@ PrefabInstance:
       propertyPath: m_SortingOrder
       value: 30
       objectReference: {fileID: 0}
+    - target: {fileID: 5509168463658748049, guid: 4e67ce2a7f6ca844f8a2f7c979db0fe2, type: 3}
+      propertyPath: m_SortingLayerID
+      value: -105489597
+      objectReference: {fileID: 0}
     - target: {fileID: 5509168463658748052, guid: 4e67ce2a7f6ca844f8a2f7c979db0fe2, type: 3}
       propertyPath: m_Pivot.x
       value: 0
@@ -1618,8 +1622,8 @@ Canvas:
   m_SortingBucketNormalizedSize: 0
   m_AdditionalShaderChannelsFlag: 25
   m_UpdateRectTransformForStandalone: 0
-  m_SortingLayerID: 0
-  m_SortingOrder: 21
+  m_SortingLayerID: -105489597
+  m_SortingOrder: 20
   m_TargetDisplay: 0
 --- !u!225 &2111378838
 CanvasGroup:
