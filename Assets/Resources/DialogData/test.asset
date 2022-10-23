@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2f602bceb9301b54f91f112318096335, type: 3}
+  m_Name: test
+  m_EditorClassIdentifier: 
+  dialog:
+  - This is a line.
+  - Helooooow!
+  responses:
+  - responseText: Yes
+    dialogObject: {fileID: 11400000, guid: 534b4598f97dfac4f82079602417b79f, type: 2}
+  - responseText: No
+    dialogObject: {fileID: 11400000, guid: 382981b598ef6e74395151b764294971, type: 2}
