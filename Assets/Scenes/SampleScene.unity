@@ -13040,6 +13040,22 @@ PrefabInstance:
     serializedVersion: 2
     m_TransformParent: {fileID: 1353997398}
     m_Modifications:
+    - target: {fileID: 2317244281385908541, guid: 93990cd5260d00a4ca9e1c07bca80f84, type: 3}
+      propertyPath: m_SortingLayer
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 2317244281385908541, guid: 93990cd5260d00a4ca9e1c07bca80f84, type: 3}
+      propertyPath: m_SortingLayerID
+      value: 455932961
+      objectReference: {fileID: 0}
+    - target: {fileID: 2317244282597842687, guid: 93990cd5260d00a4ca9e1c07bca80f84, type: 3}
+      propertyPath: m_SortingLayer
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 2317244282597842687, guid: 93990cd5260d00a4ca9e1c07bca80f84, type: 3}
+      propertyPath: m_SortingLayerID
+      value: 455932961
+      objectReference: {fileID: 0}
     - target: {fileID: 2317244283088629089, guid: 93990cd5260d00a4ca9e1c07bca80f84, type: 3}
       propertyPath: m_Name
       value: DialogCollider
@@ -13285,7 +13301,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2664233645007283633, guid: 43fdec7e0c5e76546885accf8fbcc24b, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 10.299133
+      value: 10.299072
       objectReference: {fileID: 0}
     - target: {fileID: 3491336397996148442, guid: 43fdec7e0c5e76546885accf8fbcc24b, type: 3}
       propertyPath: action
