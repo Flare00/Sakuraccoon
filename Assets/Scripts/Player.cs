@@ -11,6 +11,7 @@ public class Player : MonoBehaviour
     public AudioClip jumpSound;
     public AudioClip dashSound;
     public float direction = 1.0f;
+    public AttackZone attackZone;
     private PSEffect psEffect;
     private void Start()
     {

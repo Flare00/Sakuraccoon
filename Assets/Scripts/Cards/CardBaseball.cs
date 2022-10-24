@@ -6,13 +6,20 @@ using static UnityEngine.Rendering.DebugUI;
 public class CardBaseball : Card
 {
     private float jumpPower = 15.0f;
-    public override bool DoAction(Player p,bool destroy = true){
-       
+    public override bool DoAction(Player p, bool destroy = true)
+    {
+        p.StartCoroutine(p.attackZone.ShowWaitHide());
+        if (p.attackZone.EnemyIn)
+        {
+            p.attackZone.Enemy.GetComponent<Enemy>().Death();
+        }
+        if (destroy)
+            this.Destroy();
         return true;
     }
 
     public override Card.CardType GetCardType()
     {
-        return Card.CardType.Jump;
+        return Card.CardType.Baseball;
     }
 }

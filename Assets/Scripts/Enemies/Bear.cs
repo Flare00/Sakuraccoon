@@ -6,7 +6,7 @@ public class Bear : Enemy
 {
     public bool isPanda = false;
     public bool playerInAttackBound;
-    public BearAttackZone attackZone;
+    public AttackZone attackZone;
     public float attackWaitingTime = 1.0f;
     private void Update()
     {
@@ -35,7 +35,7 @@ public class Bear : Enemy
 
     public override bool CheckIfAttack()
     {
-        return canAttack ? attackZone.PlayerIn : false;
+        return canAttack ? attackZone.EnemyIn : false;
     }
     public override EnemyType GetEnemyType()
     {
@@ -48,11 +48,10 @@ public class Bear : Enemy
         attackZone.StartCoroutine(attackZone.ShowWaitHide());
         yield return new WaitForSeconds(0.2f);
 
-        if (attackZone.PlayerIn)
+        if (attackZone.EnemyIn)
         {
             actionSystem.Death();
         }
         isAttacking = false;
-
     }
 }
