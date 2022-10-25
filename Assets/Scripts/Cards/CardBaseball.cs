@@ -8,7 +8,7 @@ public class CardBaseball : Card
     public override bool DoAction(Player p, bool destroy = true)
     {
         p.StartCoroutine(p.attackZone.ShowWaitHide());
-        if (p.attackZone.EnemyIn)
+        if (p.attackZone.EnemyIn && p.gameObject)
         {
             p.attackZone.Enemy.GetComponent<Enemy>().Death();
         }

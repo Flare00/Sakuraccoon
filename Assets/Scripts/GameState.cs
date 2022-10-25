@@ -92,6 +92,11 @@ public class GameState
                 gs.Unlocked_Cards.Add(tmp);
             }
         }
+
+        for (int i = 0, max = gs.listeners.Count; i < max; i++)
+        {
+            gs.listeners[i].DeathIncrease();
+        }
     }
 
     public static void SaveGameStates()

@@ -2,6 +2,7 @@ using UnityEngine;
 
 public class DialogActivator : MonoBehaviour, IInteractable
 {
+    public bool disappear = false;
     [SerializeField] private DialogObject dialogObject;
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -26,6 +27,9 @@ public class DialogActivator : MonoBehaviour, IInteractable
     public void Interact(Player player)
     {
         player.DialogUI.ShowDialog(dialogObject);
-        this.gameObject.SetActive(false);
+        if (disappear)
+        {
+            this.gameObject.SetActive(false);
+        }
     }
 }

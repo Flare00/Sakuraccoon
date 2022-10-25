@@ -6,13 +6,21 @@ using UnityEngine.UI;
 
 public class MainMenuScript : MonoBehaviour
 {
+    private static bool FirstLaunch = true;
     public MenuCameraTextureScript menuCameraTex;
     public Material textureMaterial;
+    public AudioSource audioSource;
+    public GameObject transitionGO;
 
     // Start is called before the first frame update
     void Start()
     {
-        Parametres.LoadParameters();
+        if (FirstLaunch)
+        {
+            transitionGO.SetActive(false);
+            FirstLaunch = false;
+        }
+        Parametres.LoadParameters(audioSource);
         GameState.LoadGameStates();
     }
 
@@ -24,11 +32,7 @@ public class MainMenuScript : MonoBehaviour
 
     public void PlayClicked()
     {
-        Debug.Log("PLAY");
-
-
         StartCoroutine(LoadS("SampleScene"));
-
     }
 
     public void SettingsClicked()

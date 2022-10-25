@@ -96,9 +96,9 @@ GameObject:
   - component: {fileID: 5108009605254637396}
   - component: {fileID: 3619354852408017413}
   - component: {fileID: 2459764649932251874}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Attack
-  m_TagString: Untagged
+  m_TagString: Attack
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -209,7 +209,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   showingTime: 0.1
-  PlayerIn: 0
+  IsPlayer: 0
+  EnemyIn: 0
+  Enemy: {fileID: 0}
 --- !u!1 &9099957924466993184
 GameObject:
   m_ObjectHideFlags: 0

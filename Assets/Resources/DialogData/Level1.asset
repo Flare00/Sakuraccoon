@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2f602bceb9301b54f91f112318096335, type: 3}
+  m_Name: Level1
+  m_EditorClassIdentifier: 
+  dialog:
+  - 'C''est encore moi ! '
+  - "Dans ce niveau, vous avez acc\xE8s \xE0 la carte de saut.\nC'est tr\xE8s rigolo
+    !"
+  - "Restez pas plant\xE9 l\xE0, sautez au del\xE0 des horizons !\n"
+  - "Ne vous inqui\xE9tez pas, la touche \"R\" ou \"Select\" vous aime.\nSurtout
+    si vous \xEAtes coinc\xE9."
+  responses: []

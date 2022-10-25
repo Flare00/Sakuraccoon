@@ -82,6 +82,7 @@ public class Player : MonoBehaviour
             }
             if (aud)
             {
+                aud.volume = ((float)Parametres.GetInstance().SoundVolume) / 100.0f;
                 aud.clip = dashSound;
                 aud.Play();
             }

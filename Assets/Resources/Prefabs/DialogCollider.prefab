@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 2317244281385908540}
   - component: {fileID: 2317244281385908538}
   - component: {fileID: 2317244281385908541}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: PS_Key
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4834,7 +4834,7 @@ GameObject:
   - component: {fileID: 2317244282597842686}
   - component: {fileID: 2317244282597842684}
   - component: {fileID: 2317244282597842687}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: PS_Emit
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9707,9 +9707,9 @@ GameObject:
   - component: {fileID: 2317244283088629117}
   - component: {fileID: 2317244283088629116}
   - component: {fileID: 2317244283088629119}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: DialogCollider
-  m_TagString: Untagged
+  m_TagString: Dialog
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -9729,7 +9729,7 @@ Transform:
   - {fileID: 2317244282597842686}
   - {fileID: 2317244281385908540}
   m_Father: {fileID: 0}
-  m_RootOrder: -1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &2317244283088629117
 SpriteRenderer:
@@ -9811,4 +9811,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 263e2e7d236977140a3ba8b94d1188b1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  disappear: 0
   dialogObject: {fileID: 11400000, guid: 6861aa97aa7d4b74f8c743ed6fa9aa6f, type: 2}

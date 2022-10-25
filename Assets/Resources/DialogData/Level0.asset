@@ -1,0 +1,26 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2f602bceb9301b54f91f112318096335, type: 3}
+  m_Name: Level0
+  m_EditorClassIdentifier: 
+  dialog:
+  - "Bienvenue dans le prototype de Sakuraccoon ! \nPourquoi \xEAtes-vous statique
+    ? \nAh oui, pour passer au dialogue suivant c'est \"espace\"."
+  - Incroyable cette boite de dialogue vous ne trouvez pas ?
+  - "Enfin bref, le principe du jeu est simple : \nVous avez un niveau et des cartes
+    qui vous permettent de faire diff\xE9rentes actions, gr\xE2ce aux touches 1 \xE0
+    5 du clavier ou pav\xE9 num\xE9rique."
+  - "Y'as aussi la manette avec les touches \xE0 droite et les bumpers.\nN'essayez
+    pas d'ouvrir le dialogue ou de le passer avec la manette, le code de celui-ci
+    d\xE9fi les lois de l'input system."
+  - "Bref, je vous laisse, allez vous amuser avec votre \"Dash\" l\xE0."
+  responses: []

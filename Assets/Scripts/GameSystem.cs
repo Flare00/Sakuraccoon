@@ -19,11 +19,16 @@ public class GameSystem : MonoBehaviour, GameStateListener
     //Affichage
     public TextMeshProUGUI deathCounter;
 
+    public AudioSource musicSource;
+
     private bool first = true;
     // Start is called before the first frame update
     void Start()
     {
+        Parametres.LoadParameters(musicSource);
         GameState.GetInstance().AddListener(this);
+        GameState.LoadGameStates();
+
         LevelSystem.GetInstance().BlocksTiles = blocks;
         LevelSystem.GetInstance().TrapsTiles = traps;
         MainCamera.transform.localPosition = Vector3.zero;

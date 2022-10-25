@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2f602bceb9301b54f91f112318096335, type: 3}
+  m_Name: Level4
+  m_EditorClassIdentifier: 
+  dialog:
+  - Par Toutatis !  Un sanglier !
+  - "Ne vous inqui\xE9tez pas, il attaque mais il est un peu b\xEAte.\nEssayez de
+    faire le tor\xE9adore, \xE7a peut \xEAtre rigolo."
+  - Sinon il vous reste l'option de la batte de baseball.
+  responses: []

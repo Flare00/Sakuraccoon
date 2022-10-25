@@ -18,7 +18,8 @@ public class Projectile : MonoBehaviour
     {
         bool hit = false;
 
-        if (other.gameObject != emitter)
+
+        if (other.gameObject != emitter && !other.CompareTag("Attack") && !other.CompareTag("Dialog"))
         {
             hit = true;
             if (emitter.CompareTag("Player") && other.CompareTag("Enemy"))

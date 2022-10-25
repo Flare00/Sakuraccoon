@@ -18,10 +18,14 @@ public class Parametres
     public int MusicVolume { get; set; }
     public int SoundVolume { get; set; }
 
-    public static void LoadParameters()
+    public static void LoadParameters(AudioSource musicSource = null)
     {
-        GetInstance().MusicVolume = PlayerPrefs.GetInt("Music",100);
-        GetInstance().SoundVolume = PlayerPrefs.GetInt("Sound", 100);
+        GetInstance().MusicVolume = PlayerPrefs.GetInt("Music", 10);
+        GetInstance().SoundVolume = PlayerPrefs.GetInt("Sound", 10);
+        if (musicSource)
+        {
+            musicSource.volume = ((float)GetInstance().MusicVolume) / 100.0f;
+        }
     }
 
     public static void SaveParameters()

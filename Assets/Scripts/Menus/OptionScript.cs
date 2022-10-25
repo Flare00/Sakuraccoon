@@ -17,9 +17,14 @@ public class OptionScript : MonoBehaviour
     public Slider soundSlider;
     public TextMeshProUGUI soundValue;
 
+    public AudioSource musicSource;
+
+    private bool first = true;
+
     private void Start()
     {
-        Parametres.LoadParameters();
+        Parametres.LoadParameters(musicSource);
+
         musicSlider.value = Parametres.GetInstance().MusicVolume;
         musicValue.text = "" + Parametres.GetInstance().MusicVolume;
         soundSlider.value = Parametres.GetInstance().SoundVolume;
@@ -46,6 +51,10 @@ public class OptionScript : MonoBehaviour
         Parametres.GetInstance().MusicVolume = (int)musicSlider.value;
         musicValue.text = "" + Parametres.GetInstance().MusicVolume;
         Parametres.SaveParameters();
+        if (musicSource)
+        {
+            musicSource.volume = ((float)Parametres.GetInstance().MusicVolume) / 100.0f;
+        }
     }
 
     public void SoundChange()
@@ -53,6 +62,13 @@ public class OptionScript : MonoBehaviour
         Parametres.GetInstance().SoundVolume = (int)soundSlider.value;
         soundValue.text = "" + Parametres.GetInstance().SoundVolume;
         Parametres.SaveParameters();
+
+        AudioSource a = GetComponent<AudioSource>();
+        a.volume = ((float)Parametres.GetInstance().SoundVolume) / 100.0f;
+        if (!first)
+            a.Play();
+        else
+            first = false;
     }
 
     IEnumerator LoadS(string scene)
@@ -61,12 +77,14 @@ public class OptionScript : MonoBehaviour
         asyncOperation.allowSceneActivation = false;
         while (!asyncOperation.isDone)
         {
-            Debug.Log("Progress : " + asyncOperation.progress);
             if (asyncOperation.progress >= 0.9f)
             {
-                RenderTexture tex = menuCameraTex.RenderTex();
-                textureMaterial.SetTexture("_BaseMap", tex);
-                asyncOperation.allowSceneActivation = true;
+                if (menuCameraTex)
+                {
+                    RenderTexture tex = menuCameraTex.RenderTex();
+                    textureMaterial.SetTexture("_BaseMap", tex);
+                    asyncOperation.allowSceneActivation = true;
+                }
             }
             yield return null;
         }
