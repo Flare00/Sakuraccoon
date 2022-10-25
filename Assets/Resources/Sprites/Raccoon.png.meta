@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 68e2edc2e1be96c4b8b79f2dc20cb749
+guid: f52eab23c799c2041976eb1cc7cd4260
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -45,7 +45,7 @@ TextureImporter:
   compressionQuality: 50
   spriteMode: 2
   spriteExtrude: 1
-  spriteMeshType: 1
+  spriteMeshType: 0
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
   spritePixelsToUnits: 32
@@ -119,12 +119,12 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: boar_0
+      name: Raccoon_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 64
+        width: 32
         height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -133,19 +133,40 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7c9074c9bb58c6e43ad459d48ea4e30a
-      internalID: -2128646577
+      spriteID: 412ab488cad299346b48650405d27990
+      internalID: -950537866
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: boar_1
+      name: Raccoon_1
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 0
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f4038ae8f824a894f98edb55d57da9c5
+      internalID: -2140726790
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Raccoon_2
       rect:
         serializedVersion: 2
         x: 64
         y: 0
-        width: 64
+        width: 32
         height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -154,19 +175,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 63d85d0c3fea7254f84211463741c11e
-      internalID: -129125923
+      spriteID: 1be739c3ba5a55d49adc390e6c7a2787
+      internalID: 14928461
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: boar_2
+      name: Raccoon_3
       rect:
         serializedVersion: 2
-        x: 128
+        x: 96
         y: 0
-        width: 64
+        width: 32
         height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -175,8 +196,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1484b50e3645a714285a8621bb2f4853
-      internalID: 194564351
+      spriteID: f72e75940965e68449c6400a71d2c8ac
+      internalID: -274994336
       vertices: []
       indices: 
       edges: []
@@ -192,9 +213,10 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      boar_0: -2128646577
-      boar_2: 194564351
-      boar_1: -129125923
+      Raccoon_3: -274994336
+      Raccoon_2: 14928461
+      Raccoon_0: -950537866
+      Raccoon_1: -2140726790
   spritePackingTag: 
   pSDRemoveMatte: 0
   userData: 

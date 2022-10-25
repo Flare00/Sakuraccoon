@@ -7,7 +7,7 @@ using UnityEngine.Tilemaps;
 public class Boar : Enemy
 {
 
-
+    
     public Tilemap brick;
     public Tilemap trap;
     public float walkSpeed = 1.0f;
@@ -17,12 +17,15 @@ public class Boar : Enemy
     private bool waitBeforeMove = false;
 
     private Rigidbody2D rb;
+    private Animator animator;
     // Start is called before the first frame update
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+        animator = GetComponentInChildren<Animator>();
         brick = LevelSystem.GetInstance().BlocksTiles;
         trap = LevelSystem.GetInstance().TrapsTiles;
+        animator.SetBool("walk", true);
     }
 
     // Update is called once per frame
@@ -80,6 +83,8 @@ public class Boar : Enemy
 
     IEnumerator WaitAndTurn()
     {
+
+        animator.SetBool("walk", false);
         rb.velocity = new Vector2(0, rb.velocity.y);
         waitBeforeMove = true;
         if (!isAttacking)
@@ -89,7 +94,7 @@ public class Boar : Enemy
         if (!isAttacking)
             yield return new WaitForSeconds(waitingTime / 2.0f);
         waitBeforeMove = false;
-
+        animator.SetBool("walk", true);
     }
 
     IEnumerator WaitAndAttack()
@@ -129,7 +134,7 @@ public class Boar : Enemy
 
     private RaycastHit2D SendRaycast()
     {
-        return Physics2D.Raycast(transform.position + new Vector3(right ? 1.9f : -1.9f, 0.0f, 0.0f), right ? Vector2.right : Vector2.left, 100.0f);
+        return Physics2D.Raycast(transform.position + new Vector3(right ? 2.0f : -2.0f, 0.0f, 0.0f), right ? Vector2.right : Vector2.left, 100.0f);
     }
 
     public override bool CheckIfAttack()

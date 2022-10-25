@@ -25,6 +25,7 @@ public class CardRoll : Card
 
     IEnumerator RollHandler(Player p)
     {
+        p.animator.SetBool("roll", true);
         Rigidbody2D rigid = p.GetComponent<Rigidbody2D>();
         ROLL_IN_EXECUTION++;
         if(ROLL_IN_EXECUTION == 1)
@@ -40,6 +41,7 @@ public class CardRoll : Card
         {
             rigid.velocity = new Vector2(0f, 0f);
             Reset(p);
+            p.animator.SetBool("roll", false);
         }
     }
 

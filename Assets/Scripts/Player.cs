@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -13,20 +14,17 @@ public class Player : MonoBehaviour
     public float direction = 1.0f;
     public AttackZone attackZone;
     private PSEffect psEffect;
+    public Animator animator { get; private set; }
     private void Start()
     {
         rigid = GetComponent<Rigidbody2D>();
         aud = GetComponent<AudioSource>();
         psEffect = GetComponent<PSEffect>();
+        animator = GetComponentInChildren<Animator>();
     }
     public void MoveLeftRight(float value)
     {
-        if (CardDash.DASH_IN_EXECUTION > 0)
-        {
-            // Quand le dash est en cours d'exec
-        }
-
-        if (CardDash.DASH_IN_EXECUTION <= 0 && CardRoll.ROLL_IN_EXECUTION <= 0)
+        if (CardDash.DASH_IN_EXECUTION <= 0 && CardRoll.ROLL_IN_EXECUTION <= 0 && !dialogUI.IsOpen)
         {
             float tmpDir = value > 0 ? 1.0f : (value < 0 ? -1.0f : direction);
             if ((tmpDir >= 0) != (direction >= 0))
@@ -40,12 +38,23 @@ public class Player : MonoBehaviour
                 }
 
             }
+            if (Math.Abs(value) > 0.05f)
+            {
+                animator.SetBool("walk", true);
+            } else
+            {
+                animator.SetBool("walk", false);
+            }
             rigid.velocity = new Vector2(value * 7.0f, rigid.velocity.y);
+        } else
+        {
+            animator.SetBool("walk", false);
         }
     }
 
     public void CardPlayerAnim(Card.CardType type)
     {
+        animator.SetBool("walk", false);
         if (type == Card.CardType.Jump)
         {
             if (psEffect != null)
@@ -116,5 +125,6 @@ public class Player : MonoBehaviour
             // ?. : Interactable != null then call Interact()
             Interactable?.Interact(this);
         }
+
     }
 }
