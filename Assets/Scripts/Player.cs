@@ -15,6 +15,7 @@ public class Player : MonoBehaviour
     public AttackZone attackZone;
     private PSEffect psEffect;
     public Animator animator { get; private set; }
+    public List<GameObject> projectiles = new List<GameObject>();
     private void Start()
     {
         rigid = GetComponent<Rigidbody2D>();
@@ -111,6 +112,12 @@ public class Player : MonoBehaviour
         {
             aud.Stop();
         }
+        foreach(GameObject p in projectiles)
+        {
+            if(p)
+                Destroy(p);
+        }
+        projectiles.Clear();
     }
 
     /* UI FUNCTIONS */

@@ -17,6 +17,7 @@ public class CardCasseNoisette: Card
         projectile.GetComponent<Projectile>().SetData(p.gameObject);
         projectile.transform.localPosition = originalPos + new Vector3(0.5f,0,0);
         projectile.GetComponent<Rigidbody2D>().velocity = new Vector2(p.direction >= 0 ? speed : -speed, 0);
+        p.projectiles.Add(projectile);
         if (destroy)
             Destroy();
         return true;
